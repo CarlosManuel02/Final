@@ -10,10 +10,7 @@ import Main.MyConnection;
 import Main.Usuarios.Agreusuar;
 import Main.Usuarios.Ediusu;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -25,12 +22,7 @@ import javax.swing.table.DefaultTableModel;
 public class Usuario extends javax.swing.JFrame {
 
 
-    MyConnection con = new MyConnection();
-    Connection conet;
-    DefaultTableModel modelo;
-    Statement st;
     ResultSet rs;
-    int idk;
     public static int id;
 
 
@@ -210,6 +202,10 @@ public class Usuario extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
+        // vaciar la tabla antes de mostrar los datos
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+
         try{
 
             Class.forName("com.mysql.jdbc.Driver");
@@ -217,7 +213,7 @@ public class Usuario extends javax.swing.JFrame {
 
             Statement st = conet.createStatement();
 
-            String sql = "SELECT * FROM final.final";
+            String sql = "SELECT * FROM final.usuarios";
             rs = st.executeQuery(sql);
 
             while(rs.next()){
@@ -227,7 +223,7 @@ public class Usuario extends javax.swing.JFrame {
                 String Apel = rs.getString("Apellido");
                 String Usu = rs.getString("Usuario");
                 String Pass = rs.getString("Pass");
-                String Tel = String.valueOf(rs.getInt("Telefono"));
+                String Tel = rs.getString("Telefono");
                 String Em = rs.getString("Email");
 
                 String tbData[] = {Nom, Apel, Usu, Pass, Tel, Em};
@@ -309,14 +305,17 @@ public class Usuario extends javax.swing.JFrame {
             if (fila == -1){
                 JOptionPane.showMessageDialog(null, "Seleccione una fila");
             }else {
-                String sql = "DELETE FROM `final` WHERE 0";
-                conet = con.getconnection();
-                st = conet.createStatement();
-                st.executeUpdate(sql);
+                String sql = "DELETE FROM `usuarios` WHERE `id` = '"+id+"'";
+                PreparedStatement pst = MyConnection.getConnectionFinal().prepareStatement(sql);
+                pst.executeUpdate();
+
+//                conet = con.getconnection();
+//                st = conet.createStatement();
+//                st.executeUpdate(sql);
                 JOptionPane.showMessageDialog(null, "Usuario Eliminado");
             }
         }catch(Exception ex){
-
+            System.out.println(ex);
         }
 
 

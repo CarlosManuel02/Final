@@ -207,7 +207,7 @@ public class Home extends javax.swing.JFrame {
 
     private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
 
-        Inicio lgf = new Inicio();
+        Login lgf = new Login();
         lgf.setVisible(true);
         lgf.pack();
         lgf.setLocationRelativeTo(null);

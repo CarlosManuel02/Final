@@ -241,12 +241,12 @@ public class Edipro extends javax.swing.JFrame {
         else {
 
             PreparedStatement ps;
-            String query = "UPDATE `alma` SET `Nombre`=?,`Marca`=?,`Categoria`=?,`Precio`=?,`Cantidad`=? WHERE `id`=?";
+            String query = "UPDATE `productos` SET `Nombre`=?,`Marca`=?,`Categoria`=?,`Precio`=?,`Cantidad`=? WHERE `id`=?";
 
 
 
             try {
-                ps = MyConnection.getConection().prepareStatement(query);
+                ps = MyConnection.getConnectionFinal().prepareStatement(query);
 
                 ps.setString(1, name);
                 ps.setString(2, marc);

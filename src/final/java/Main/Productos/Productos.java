@@ -24,10 +24,8 @@ public class Productos extends javax.swing.JFrame {
 
     MyConnection con = new MyConnection();
     Connection conet;
-    DefaultTableModel modelo;
     Statement st;
     ResultSet rs;
-    int idk;
     public static int id;
 
 
@@ -205,14 +203,18 @@ public class Productos extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
+        // vaciar la tabla antes de mostrar los datos
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+
         try{
 
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conet =  DriverManager.getConnection("jdbc:mysql://localhost/alma", "root", "noway123");
+            Connection conet =  DriverManager.getConnection("jdbc:mysql://localhost/final", "root", "noway123");
 
             Statement st = conet.createStatement();
 
-            String sql = "SELECT * FROM alma.alma";
+            String sql = "SELECT * FROM final.productos";
             rs = st.executeQuery(sql);
 
             while(rs.next()){
@@ -257,14 +259,14 @@ public class Productos extends javax.swing.JFrame {
             if (fila == -1){
                 JOptionPane.showMessageDialog(null, "Seleccione una fila");
             }else {
-                String sql = "DELETE FROM `alma` WHERE 0";
+                String sql = "DELETE FROM `productos` WHERE 0";
                 conet = con.getconnection();
                 st = conet.createStatement();
                 st.executeUpdate(sql);
-                JOptionPane.showMessageDialog(null, "Usuario Eliminado");
+                JOptionPane.showMessageDialog(null, "Producto eliminado");
             }
         }catch(Exception ex){
-
+            System.out.println(ex);
         }
 
 

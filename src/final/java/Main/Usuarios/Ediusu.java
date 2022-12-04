@@ -262,11 +262,11 @@ public class Ediusu extends javax.swing.JFrame {
         else {
 
             PreparedStatement ps;
-            String query = "UPDATE `final` SET `Nombre`=?,`Apellido`=?,`Usuario`=?,`Pass`=?,`Telefono`=?,`Email`=? WHERE `id`=?";
+            String query = "UPDATE `usuarios` SET `Nombre`=?,`Apellido`=?,`Usuario`=?,`Pass`=?,`Telefono`=?,`Email`=? WHERE `id`=?";
 
 
             try {
-                ps = MyConnection.getConnection().prepareStatement(query);
+                ps = MyConnection.getConnectionFinal().prepareStatement(query);
 
                 ps.setString(1, fname);
                 ps.setString(2, lname);
@@ -360,10 +360,10 @@ public class Ediusu extends javax.swing.JFrame {
         PreparedStatement ps;
         ResultSet rs;
         boolean checkUser = false;
-        String query = "SELECT * FROM `final` WHERE `Usuario` =?";
+        String query = "SELECT * FROM `usuarios` WHERE `Usuario` =?";
 
         try {
-            ps = MyConnection.getConnection().prepareStatement(query);
+            ps = MyConnection.getConnectionFinal().prepareStatement(query);
             ps.setString(1, username);
 
             rs = ps.executeQuery();
@@ -373,7 +373,7 @@ public class Ediusu extends javax.swing.JFrame {
                 checkUser = true;
             }
         } catch (SQLException ex) {
-
+            System.out.println(ex);
         }
         return checkUser;
     }
