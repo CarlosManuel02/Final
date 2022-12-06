@@ -163,7 +163,8 @@ public class Productos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        Home hm = new Home();
+        String uname = Home.usuario;
+        Home hm = new Home(uname);
         hm.setVisible(true);
         hm.pack();
         hm.setLocationRelativeTo(null);
@@ -260,7 +261,7 @@ public class Productos extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Seleccione una fila");
             }else {
                 String sql = "DELETE FROM `productos` WHERE 0";
-                conet = con.getconnection();
+                conet = con.getConnectionFinal();
                 st = conet.createStatement();
                 st.executeUpdate(sql);
                 JOptionPane.showMessageDialog(null, "Producto eliminado");

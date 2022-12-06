@@ -63,8 +63,8 @@ CREATE TABLE usuarios
     Apellido varchar(50) NOT NULL,
     Usuario  varchar(50) NOT NULL,
     Pass     varchar(20) NOT NULL,
-    Telefono varchar(25) NOT NULL,
-    Email    varchar(25) NOT NULL
+    Telefono varchar(25) NOT NULL UNIQUE,
+    Email    varchar(25) NOT NULL UNIQUE
 );
 
 CREATE TABLE productos
