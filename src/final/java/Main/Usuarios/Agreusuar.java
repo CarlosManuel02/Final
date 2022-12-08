@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author Carlos
  */
-public class Agreusuar extends javax.swing.JFrame {
+public class Agreusuar extends javax.swing.JFrame implements UserMetodos {
 
     /**
      * Creates new form Agreusuar
@@ -214,8 +214,8 @@ public class Agreusuar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void guardarCambios(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarCambios
+    @Override
+    public void guardarCambios(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarCambios
 
         String fname = jTextFieldN.getText();
         String lname = jTextFieldA.getText();
@@ -297,8 +297,8 @@ public class Agreusuar extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_guardarCambios
-
-    private void cancelar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelar
+    @Override
+    public void cancelar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelar
 
         Usuario urs = new Usuario();
         urs.setVisible(true);
@@ -343,7 +343,7 @@ public class Agreusuar extends javax.swing.JFrame {
             }
         });
     }
-
+    @Override
     public boolean checkUsername(String username)
     {
         PreparedStatement ps;

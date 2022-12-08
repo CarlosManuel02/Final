@@ -79,7 +79,7 @@ public class Home extends javax.swing.JFrame {
 
         textoB.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         textoB.setForeground(new java.awt.Color(255, 255, 255));
-        textoB.setText("BIENVENIDO USUARIO");
+        textoB.setText("BIENVENIDO ");
 
         javax.swing.GroupLayout panelBLayout = new javax.swing.GroupLayout(panelB);
         panelB.setLayout(panelBLayout);
@@ -87,8 +87,8 @@ public class Home extends javax.swing.JFrame {
             panelBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBLayout.createSequentialGroup()
                 .addGap(161, 161, 161)
-                .addComponent(textoB, javax.swing.GroupLayout.PREFERRED_SIZE, 49, Short.MAX_VALUE)
-                .addGap(192, 192, 192))
+                .addComponent(textoB, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelBLayout.setVerticalGroup(
             panelBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,9 +119,9 @@ public class Home extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(panelLogLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(46, 46, 46)
                 .addComponent(Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         panelLogLayout.setVerticalGroup(
             panelLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,13 +129,13 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(panelB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGap(21, 21, 21)
                 .addGroup(panelLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Productos, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(Cerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
+                .addComponent(Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -146,7 +146,9 @@ public class Home extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -183,6 +185,7 @@ public class Home extends javax.swing.JFrame {
         lgf.setLocationRelativeTo(null);
         lgf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
+        usuario = "";
 
     }//GEN-LAST:event_CerrarActionPerformed
 
